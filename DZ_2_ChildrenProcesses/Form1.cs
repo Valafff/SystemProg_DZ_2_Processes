@@ -150,7 +150,8 @@ namespace DZ_2_ChildrenProcesses
 		private void bt_Search_Click(object sender, EventArgs e)
 		{
 			string t = "net6.0";
-			try
+			ChildPath = Environment.CurrentDirectory;
+			//try
 			{
 				if (ChildPath.Contains("net6.0"))
 				{
@@ -164,7 +165,6 @@ namespace DZ_2_ChildrenProcesses
 				{
 					t = "net8.0";
 				}
-				ChildPath = Environment.CurrentDirectory;
 				ChildPath = ChildPath.Replace($"\\DZ_2_ChildrenProcesses\\bin\\Debug\\{t}", "\\ChildSearch\\bin\\Debug\\net6.0\\ChildSearch.exe");
 				ChildPath = ChildPath.Replace("-windows", "");
 				var processInfo = new ProcessStartInfo
@@ -177,10 +177,10 @@ namespace DZ_2_ChildrenProcesses
 				process.Start();
 				process.WaitForExit();
 			}
-			catch (Exception)
-			{
-				MessageBox.Show("Ошибка поиска");
-			}
+			//catch (Exception)
+			//{
+			//	MessageBox.Show("Ошибка поиска");
+			//}
 
 		}
 	}
